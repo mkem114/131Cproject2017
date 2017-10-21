@@ -137,10 +137,20 @@ void DayTrader(int *prices, int numPrices, int *bestRun, int *bestRunIndex)
 /* Your comment goes here*/
 void Compress(int *input, int *output)
 {
-    while () {
-
+    int last = -1;
+    int marker = 0;
+    int count;
+    for (int i = 0; input[i] != -1; i++) {
+        if (input[i] == last) {
+            output[marker - 2] = ++count;
+        } else {
+            count = 1;
+            output[marker++] = count;
+            last = input[i];
+            output[marker++] = last;
+        }
     }
-	output[0] = 99999 + input[0];
+    output[marker] = -1;
 }
 
 /* Your comment goes here*/
@@ -153,7 +163,26 @@ void AddOne(char *input, char *output)
 /* Your comment goes here*/
 void Histogram(char *result, int *values, int numValues)
 {
-	result[0] = (char)('~' + numValues + values[0]);
+    int biggest = 0;
+    for (int i = 0; i < numValues; ++i) {
+        if (values[i] > biggest) {
+            biggest = values[i];
+        }
+    }
+    int count = 0;
+    for (int i = 0; i < biggest + 2; i++) {
+        for (int j = 0; j < numValues + 2; j++) {
+            if (j == 0 || j == (numValues + 1) || i == 0 || i == (biggest + 1)) {
+                result[count++] = '*';
+            } else if ((numValues-i) <= values[j-1]-2) {
+                result[count++] = 'X';
+            } else {
+                result[count++] = ' ';
+            }
+        }
+        result[count++] = '\n';
+    }
+    result[--count] = 0;
 }
 
 /* Your comment goes here*/

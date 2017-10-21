@@ -330,18 +330,21 @@ void Test_Histogram(void)
 		Histogram(formatted, values1, 10);
 		if (strcmp(formatted, "************\n*       X  *\n*      XX  *\n*     XXX  *\n*  X  XXX  *\n*  X XXXXXX*\n*X XXXXXXXX*\n************")) {
 			printf("FAIL (values1) ");
+            printf("\n%s",formatted);
 		} else {
 			printf("PASS ");
 		}
 		Histogram(formatted, values2, 3);
 		if (strcmp(formatted, "*****\n*X X*\n*****")) {
 			printf("FAIL (values2) ");
+            printf("\n%s",formatted);
 		} else {
 			printf("PASS ");
 		}
 		Histogram(formatted, values3, 3);
 		if (strcmp(formatted, "*****\n* X *\n*****")) {
 			printf("FAIL (values3) ");
+            printf("\n%s",formatted);
 		} else {
 			printf("PASS ");
 		}
