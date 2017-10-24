@@ -174,7 +174,7 @@ void Histogram(char *result, int *values, int numValues)
         for (int j = 0; j < numValues + 2; j++) {
             if (j == 0 || j == (numValues + 1) || i == 0 || i == (biggest + 1)) {
                 result[count++] = '*';
-            } else if ((numValues-i) <= values[j-1]-2) {
+            } else if ((biggest-i) <= values[j-1]-1) {
                 result[count++] = 'X';
             } else {
                 result[count++] = ' ';
@@ -188,6 +188,27 @@ void Histogram(char *result, int *values, int numValues)
 /* Your comment goes here*/
 void GoldRush(int *results, int rows, int cols, int map[MAX_MAP_SIZE][MAX_MAP_SIZE], int bonus)
 {
-	results[0] = 99993 + rows + cols + map[0][0] + bonus;
+    results[0] = 0;
+    results[1] = 0;
+    for (int i = 0; i < rows; i++) {
+        for (int j = 0; j < cols; j++) {
+            if (map[i][j] == 9) {
+                results[0]++;
+                if (i != 0 && j != 0 && i != rows - 1 && j != cols - 1) {
+                    bool flag = true;
+                    for (int k = -1; k <=1; k++) {
+                        for (int l = -1; l <=1; l++) {
+                            if (map[i+k][j+l] != 9) {
+                                flag = false;
+                            }
+                        }
+                    }
+                    if (flag) {
+                        results[1]++;
+                    }
+                }
+            }
+        }
+    }
 }
 
