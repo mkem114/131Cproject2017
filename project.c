@@ -81,7 +81,7 @@ double AverageSheep(int *counts) {
         }
         count++;
     }
-    return (sum / div);
+    return sum / div;
 }
 
 /* Your comment goes here*/
