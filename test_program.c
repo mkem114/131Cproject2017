@@ -82,6 +82,8 @@ void Test_AverageSheep(void)
 	int sheep2[MAX_ARRAY_SIZE] = {-1, 25, 12, 18, -1, 9999};
 	int sheep3[MAX_ARRAY_SIZE] = {-1, 22, 9999, -1, 25, 12};
 	int sheep4[MAX_ARRAY_SIZE] = {-1, -1, 9999, -1, 25, 12};
+    int sheep5[MAX_ARRAY_SIZE] = {9999, -1, 25, 12};
+    int sheep6[MAX_ARRAY_SIZE] = {-1, -1, -1, 9999};
 
 	if (AverageSheep(sheep1) == 99999.9) {
 		printf("\nTask Two:   AverageSheep()   - not yet implemented");
@@ -102,6 +104,16 @@ void Test_AverageSheep(void)
 		} else {
 			printf("PASS ");
 		}
+        if ((AverageSheep(sheep5) < -0.000001) || (AverageSheep(sheep5) > 0.000001)) {
+            printf("FAIL (sheep5) ");
+        } else {
+            printf("PASS ");
+        }
+        if ((AverageSheep(sheep6) < -0.000001) || (AverageSheep(sheep6) > 0.000001)) {
+            printf("FAIL (sheep6) ");
+        } else {
+            printf("PASS ");
+        }
 	}
 }
 
