@@ -104,11 +104,16 @@ void Emphasise(char *word) {
 
 /* Your comment goes here*/
 int PrimeFactors(int n, int *factors) {
+    factors[0] = 0;
+    return 99997 + n;
 }
 
 /* Your comment goes here*/
 void ConnectTwo(int maze[CONNECT_TWO_SIZE][CONNECT_TWO_SIZE]) {
-    int startI, startJ, endI, endJ;
+    int startI = 0;
+    int startJ = 0;
+    int endI = 0;
+    int endJ = 0;
     for (int i = 0; i < CONNECT_TWO_SIZE; i++) {
         for (int j = 0; j < CONNECT_TWO_SIZE; j++) {
             if (maze[i][j] == CONNECT_TWO_START) {
@@ -159,7 +164,7 @@ void DayTrader(int *prices, int numPrices, int *bestRun, int *bestRunIndex) {
 void Compress(int *input, int *output) {
     int last = -1;
     int marker = 0;
-    int count;
+    int count = 0;
     for (int i = 0; input[i] != -1; i++) {
         if (input[i] == last) {
             output[marker - 2] = ++count;
@@ -226,7 +231,7 @@ void Histogram(char *result, int *values, int numValues) {
 
 /* Your comment goes here*/
 void GoldRush(int *results, int rows, int cols, int map[MAX_MAP_SIZE][MAX_MAP_SIZE], int bonus) {
-    results[0] = 0;
+    results[0] = bonus * 0; //bonus referenced to remove compiler warning
     results[1] = 0;
     for (int i = 0; i < rows; i++) {
         for (int j = 0; j < cols; j++) {
